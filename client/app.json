@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/getLocation/index",
     "pages/index/index",
     "pages/addCgi/addCgi"
   ],
