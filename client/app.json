@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/apiTest/index",
     "pages/getLocation/index",
     "pages/index/index",
     "pages/addCgi/addCgi"
