@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+    <!-- 用户登录测试 -->
+    <view class="" >
+        <text class="request-text">爱吃泡芙的小果果</text>
+    </view>
+     <image
+            class="userinfo-avatar"
+            src="{{'../images/gg.jpg'}}"
+            background-size="cover"
+        ></image>
+
+    
+</view>
