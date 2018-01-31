@@ -34,5 +34,27 @@
             <text class="request-text">{{'请求结果：' + scanResult}}</text>
         </view>
     </view>
+
+    <!-- 获取系统信息 -->
+    <view class="tunnel">
+        <view class="tunnel-text uploader-text">
+            <text bindtap="getSystemInfo">获取系统信息</text>
+            <switch class="tunnel-switch" bindchange="switchSystemInfo" color="#007AFF"/>
+        </view>
+        <view class="tunnel-text" wx:if="{{systemInfoResult}}">
+            <text class="request-text">{{'请求结果：' + systemInfoResult}}</text>
+        </view>
+    </view>
     
+
+    <!-- 监听罗盘数据 -->
+    <view class="tunnel">
+        <view class="tunnel-text uploader-text">
+            <text bindtap="goCompass">监听罗盘数据</text>
+            <switch class="tunnel-switch" bindchange="switchCompass" color="#007AFF"/>
+        </view>
+        <view class="tunnel-text" wx:if="{{compassResult}}">
+            <text class="request-text">{{'请求结果：' + compassResult}}</text>
+        </view>
+    </view>
 </view>

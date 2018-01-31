@@ -9,7 +9,9 @@ Page({
         logged: false,
         takeSession: false,
         locationResult: '', // 地理位置
-        scanResult: '' // 扫码结果
+        scanResult: '', // 扫码结果
+        systemInfoResult: '', // 系统信息结果
+        compassResult: '', // 监听罗盘数据
     },
 
     // 用户登录示例
@@ -98,6 +100,44 @@ Page({
                 that.setData({
                     scanResult: JSON.stringify(res)
                 })
+            }
+        })
+    },
+
+    // 调用获取系统信息
+    switchSystemInfo: function (e) {
+        this.setData({
+            takeSession: e.detail.value
+        })
+        this.getSystemInfo()
+    },
+    getSystemInfo: function () {
+        util.showBusy('请求中...')
+        var that = this
+        wx.getSystemInfo({
+            success: (res) => {
+                console.log(res)
+                util.showSuccess('请求成功完成')
+                that.setData({
+                    systemInfoResult: JSON.stringify(res)
+                })
+            }
+        })
+    },
+
+    // 监听罗盘数据
+    switchCompass: function (e) {
+        // this.setData({
+        //     takeSession: e.detail.value
+        // })
+        this.goCompass()
+    },
+    //事件处理函数
+    goCompass: function() {
+        wx.redirectTo({
+            url: '../compass/compass',
+            complete: (res) => {
+                console.log(res)
             }
         })
     }
