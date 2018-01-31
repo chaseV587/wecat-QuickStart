@@ -57,4 +57,15 @@
             <text class="request-text">{{'请求结果：' + compassResult}}</text>
         </view>
     </view>
+
+    <!-- 监听罗盘数据 -->
+    <view class="tunnel">
+        <view class="tunnel-text uploader-text">
+            <text bindtap="doVibrate">使手机震动</text>
+            <switch class="tunnel-switch" bindchange="switchVibrate" color="#007AFF"/>
+        </view>
+        <view class="tunnel-text" wx:if="{{vibrateResult}}">
+            <text class="request-text">{{'请求结果：' + vibrateResult}}</text>
+        </view>
+    </view>
 </view>

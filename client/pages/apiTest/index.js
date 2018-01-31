@@ -12,6 +12,7 @@ Page({
         scanResult: '', // 扫码结果
         systemInfoResult: '', // 系统信息结果
         compassResult: '', // 监听罗盘数据
+        vibrateResult: '' // 震动结果
     },
 
     // 用户登录示例
@@ -127,9 +128,6 @@ Page({
 
     // 监听罗盘数据
     switchCompass: function (e) {
-        // this.setData({
-        //     takeSession: e.detail.value
-        // })
         this.goCompass()
     },
     //事件处理函数
@@ -138,6 +136,25 @@ Page({
             url: '../compass/compass',
             complete: (res) => {
                 console.log(res)
+            }
+        })
+    },
+
+    // 震动
+    switchVibrate: function (e) {
+        this.doVibrate()
+    },
+    //事件处理函数
+    doVibrate: function() {
+        util.showBusy('请求中...')
+        var that = this
+        wx.vibrateLong({
+            complete: (res) => {
+                console.log(res)
+                util.showSuccess('请求成功完成')
+                that.setData({
+                    vibrateResult: JSON.stringify(res)
+                })
             }
         })
     }
